@@ -1,4 +1,4 @@
-.PHONY: clean build
+.PHONY: clean build install
 
 default: build
 
@@ -10,3 +10,7 @@ bin/jt: *.go
 
 clean:
 	@rm -rf bin
+
+install: bin/jt
+	@sudo cp bin/jt /usr/bin/jt
+	@sudo chown root /usr/bin/jt
