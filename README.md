@@ -10,17 +10,17 @@ $ cat some.json | jt -template some.tmpl
 ```
 
 ## Building
-** Pre-requisites **
+#### Pre-requisites
 - go
 - makeutils
 
-** Standard binary **
+#### Standard binary
 
 ```none
 $ make
 ```
 
-** Statically linked binary **
+#### Statically linked binary
 
 ```none
 $ make static
