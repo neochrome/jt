@@ -30,39 +30,45 @@ func jsonFrom(source string) *interface{} {
 	return data
 }
 
-func printUsage() {
-	fmt.Fprintln(os.Stderr, "Usage of jt: [OPTIONS] [FILE]")
-	fmt.Fprintln(os.Stderr, "Renders JSON data read from FILE or stdin.\n")
-	fmt.Fprintln(os.Stderr, "Options:")
-	flag.PrintDefaults()
+type Flags struct {
+	template string
+	version  bool
 }
 
-func printVersion() {
-	fmt.Printf("jt v%s\n", VERSION)
-	os.Exit(0)
+var flags = Flags{}
+
+func init() {
+	flag.StringVar(&flags.template, "template", "", "(required) template file")
+	flag.BoolVar(&flags.version, "version", false, "print version")
+	flag.Usage = func() {
+		fmt.Fprintln(os.Stderr, `
+Usage: jt [OPTIONS] [FILE]
+Renders JSON data read from FILE or stdin.
+
+Options:`)
+		flag.PrintDefaults()
+	}
+
+	flag.Parse()
+
+	if flags.version {
+		fmt.Printf("jt v%s\n", VERSION)
+		os.Exit(0)
+	}
+
+	if flags.template == "" {
+		log.Fatalf("template is required")
+	}
 }
 
 func main() {
-	templateFlag := flag.String("template", "", "(required) template file")
-	versionFlag := flag.Bool("version", false, "print version")
-	flag.Usage = printUsage
-	flag.Parse()
-
-	if *versionFlag {
-		printVersion()
-	}
-
 	source := flag.Arg(0)
 	if source == "" {
 		source = "-"
 	}
-	if *templateFlag == "" {
-		log.Fatalf("template is required")
-	}
-
-	t, err := template.ParseFiles(*templateFlag)
+	t, err := template.ParseFiles(flags.template)
 	if err != nil {
-		log.Fatalf("Error loading template: %s\n%s\n", *templateFlag, err)
+		log.Fatalf("Error loading template: %s\n%s\n", flags.template, err)
 	}
 
 	err = t.Execute(os.Stdout, jsonFrom(source))
