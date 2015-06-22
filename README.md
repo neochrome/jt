@@ -20,11 +20,5 @@ $ cat some.json | jt -template some.tmpl
 $ make
 ```
 
-#### Statically linked binary
-
-```none
-$ make static
-```
-
 [JSON]: http://json.org
 [GOT]: http://golang.org/pkg/text/template/#pkg-overview
