@@ -9,26 +9,7 @@ import (
 	"text/template"
 )
 
-func jsonFrom(source string) *interface{} {
-	var file *os.File
-	if source != "-" {
-		var err error
-		file, err = os.Open(source)
-		if err != nil {
-			log.Fatalf("Error reading data from: %s\n%s\n", source, err)
-		}
-		defer file.Close()
-	} else {
-		file = os.Stdin
-	}
-	decoder := json.NewDecoder(file)
-	var data *interface{}
-	err := decoder.Decode(&data)
-	if err != nil {
-		log.Fatalf("Error reading data from: %s\n%s\n", source, err)
-	}
-	return data
-}
+var version string
 
 type Flags struct {
 	template string
@@ -52,13 +33,34 @@ Options:`)
 	flag.Parse()
 
 	if flags.version {
-		fmt.Printf("jt v%s\n", VERSION)
+		fmt.Printf("jt %s\n", version)
 		os.Exit(0)
 	}
 
 	if flags.template == "" {
 		log.Fatalf("template is required")
 	}
+}
+
+func jsonFrom(source string) *interface{} {
+	var file *os.File
+	if source != "-" {
+		var err error
+		file, err = os.Open(source)
+		if err != nil {
+			log.Fatalf("Error reading data from: %s\n%s\n", source, err)
+		}
+		defer file.Close()
+	} else {
+		file = os.Stdin
+	}
+	decoder := json.NewDecoder(file)
+	var data *interface{}
+	err := decoder.Decode(&data)
+	if err != nil {
+		log.Fatalf("Error reading data from: %s\n%s\n", source, err)
+	}
+	return data
 }
 
 func main() {

@@ -12,12 +12,20 @@ $ cat some.json | jt -template some.tmpl
 ## Building
 #### Pre-requisites
 - go
-- makeutils
+- coreutils
+- make
 
-#### Standard binary
+#### Compile and install to default location (/usr/bin on Linux)
 
 ```none
 $ make
+$ sudo make install
+```
+
+#### Install to custom location
+
+```none
+$ make install prefix=/tmp/custom
 ```
 
 [JSON]: http://json.org
