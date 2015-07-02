@@ -30,16 +30,6 @@ Options:`)
 		flag.PrintDefaults()
 	}
 
-	flag.Parse()
-
-	if flags.version {
-		fmt.Printf("jt %s\n", version)
-		os.Exit(0)
-	}
-
-	if flags.template == "" {
-		log.Fatalf("template is required")
-	}
 }
 
 func jsonFrom(source string) *interface{} {
@@ -64,15 +54,25 @@ func jsonFrom(source string) *interface{} {
 }
 
 func main() {
-	source := flag.Arg(0)
-	if source == "" {
-		source = "-"
+	flag.Parse()
+	if flags.version {
+		fmt.Printf("jt %s\n", version)
+		os.Exit(0)
 	}
+
+	if flags.template == "" {
+		log.Fatalf("template is required")
+	}
+
 	t, err := template.ParseFiles(flags.template)
 	if err != nil {
 		log.Fatalf("Error loading template: %s\n%s\n", flags.template, err)
 	}
 
+	source := flag.Arg(0)
+	if source == "" {
+		source = "-"
+	}
 	err = t.Execute(os.Stdout, jsonFrom(source))
 	if err != nil {
 		log.Fatalf("Error rendering template: %s\n", err)
