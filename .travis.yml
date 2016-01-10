@@ -5,11 +5,11 @@ go:
 deploy:
   provider: releases
   api_key:
-    secure: MFETQ2G8Tu5DFTJD0UXDLozURBg7KRlmjHdF2wfzu+UMaIfP/+6UA243NkKF87vVXdzSUBjmmhR85NXqBXxagwVtaZ35WeRK3tVOpeCckSl8TyCmDYtkrQa+ZiB2Kx7VX26vddelYby2c464WZvtt10/Jt6q2HbdMkbv5AN07Sfs0xHRlJzLuhpXgi9tw10a8nzXe3XiR3wp85TO7FlBPtmPYfI3VbG7Z2Rdv78IIJBACtQYwGaS939FDk17CJIacPlRiSLvGkzcggnP+T1vV1PYG1fVOepOYOFNA06Yhr3WxB+IkA2dNm6eQsYcFFwMA7xqee1idgaKqD2N0DaKXCsLFgsL3kRuAuUFQpUb4B6sLwElfeZZpcZ4WBnY8wmP6c6RNuwe9JmNzpM1rtNoR6IOnzXMddOMm9ylWbKpB+AoOq9KLhPtyfN8dV82Dnu44/u8N4SA3dff8ngz/6lhZx25fMy+9Y5D/klx9AVYsF2C6NS66qcg3ouAb9wRCNQKXqnjq3YcfEwVyQyMUqUDl3aUNUjshysI43fqo2JJoA57UjI+F0sNJx6dQQGX3O2AHhKjPQv8yXu/LcaIZ4Yh81ll5/J575nlxkTixQmNPOJOrL8pM3IFXBBXFO9/zw8V/9qeHgazGVvUtklh5U78xByC2Q1LLliHQ4gKFg6D93Y=
+    secure: btHdsreqb8jxJGTVqTrVjmk/O5e6jFpIzk448POctCl1tLZsYsVprbymYf5+k6i95w8VACvN+f8OK5rhHHe4Ci0VPPko4tg/Tuu4hdATxY0euFK22bGPdNaZoXSfeFJHxw4dz6BzsToRfUmJ8fx004haNOfqL96J6lO62IaW8PQY3222OHAoB5VG9qMNfJTglHYCgupJ+uBK0Oh9idURZzrgHuxAGuUiionI3bdIH1bke4sw9mAzPdA58Q6g7ttESeECMrNKWgKX6pFZ+QEQI6RNYzhg/CAYqYst5rKxdUDaOiuNZwQy4SQHtBSj7MzswbR8h9yHWGP9xyCYiMYFU6S8Yr9qvU6AI02+BrG4pm6TT/l6/nG1okAPjKdbnhm8s+I+/+4raLFugVyzWtxtJcWlAIQYgnBrk/LC16MR/HEELCxWomVzYHkVR4Pm/t+p7/gxVsnWx8dOOknu9KSUoIqi1SUgVV1/4DxwyFlF+5Gy/fYBZ68lymsKcIWZfHwsy3UYc0LM1/cNghs0sGzdrBDN0WO4yiV0MqdkVmh/ID40/dXL6Cv0Lh2m77Be9afmUiPVc8diT44BuNq/QrtbPr4549u+tA4ZW8fCeZ++3RI3e5UeFCrhz+gwvahZ2l+3yTUWVK9XWhmZQXVFDxQP8GdP0n+6JzrdOsE1ufYNFAg=
   file:
     - ./bin/jt-linux-amd64
     - ./bin/jt-windows-amd64.exe
     - ./bin/jt-darwin-amd64
   skip_cleanup: true
   on:
-    tags: true
+    repo: neochrome/jt
