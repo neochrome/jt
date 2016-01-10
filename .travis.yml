@@ -6,7 +6,7 @@ deploy:
   provider: releases
   api_key:
     secure: MFETQ2G8Tu5DFTJD0UXDLozURBg7KRlmjHdF2wfzu+UMaIfP/+6UA243NkKF87vVXdzSUBjmmhR85NXqBXxagwVtaZ35WeRK3tVOpeCckSl8TyCmDYtkrQa+ZiB2Kx7VX26vddelYby2c464WZvtt10/Jt6q2HbdMkbv5AN07Sfs0xHRlJzLuhpXgi9tw10a8nzXe3XiR3wp85TO7FlBPtmPYfI3VbG7Z2Rdv78IIJBACtQYwGaS939FDk17CJIacPlRiSLvGkzcggnP+T1vV1PYG1fVOepOYOFNA06Yhr3WxB+IkA2dNm6eQsYcFFwMA7xqee1idgaKqD2N0DaKXCsLFgsL3kRuAuUFQpUb4B6sLwElfeZZpcZ4WBnY8wmP6c6RNuwe9JmNzpM1rtNoR6IOnzXMddOMm9ylWbKpB+AoOq9KLhPtyfN8dV82Dnu44/u8N4SA3dff8ngz/6lhZx25fMy+9Y5D/klx9AVYsF2C6NS66qcg3ouAb9wRCNQKXqnjq3YcfEwVyQyMUqUDl3aUNUjshysI43fqo2JJoA57UjI+F0sNJx6dQQGX3O2AHhKjPQv8yXu/LcaIZ4Yh81ll5/J575nlxkTixQmNPOJOrL8pM3IFXBBXFO9/zw8V/9qeHgazGVvUtklh5U78xByC2Q1LLliHQ4gKFg6D93Y=
-  file: -
+  file:
     - ./bin/jt-linux-amd64
     - ./bin/jt-windows-amd64.exe
     - ./bin/jt-darwin-amd64
